@@ -30,24 +30,20 @@ $json_text .= "]";
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/luminous-lightbox@2.4.0/dist/luminous-basic.min.css">
     </head>
     <body>
-        <div class="wrapper">
-            <div class="container">
-                <div class="main">
-                    <h1 class="main_heading">スケッチブック</h1>
-                    <?php
-                    // データベースと接続失敗の際、エラー出力
-                    if ($err_text) echo $err_text;
-                    ?>
-                    <div class="sketchbook_main">
-                        <div class="sketchbook_year_container">
-                            <button id="sketchbook_previous_year_btn">&lt;</button>
-                            <h2 id="sketchbook_year"></h2>
-                            <button id="sketchbook_next_year_btn">&gt;</button>
-                        </div>
-                        <div id="sketchbook_grid"></div>
-                    </div>                    
+        <div class="main">
+            <h1 class="main_heading">スケッチブック</h1>
+            <?php
+            // データベースと接続失敗の際、エラー出力
+            if ($err_text) echo $err_text;
+            ?>
+            <div class="sketchbook_main">
+                <div class="sketchbook_year_container">
+                    <button id="sketchbook_previous_year_btn">&lt;</button>
+                    <h2 id="sketchbook_year"></h2>
+                    <button id="sketchbook_next_year_btn">&gt;</button>
                 </div>
-            </div>
+                <div id="sketchbook_grid"></div>
+            </div>                    
         </div>
         <?php
         // <script>でjsonを埋め込み
