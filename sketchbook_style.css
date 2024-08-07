@@ -1,0 +1,75 @@
+.sketchbook_main {
+    padding: 0.6em;
+}
+
+.sketchbook_year_container {
+    display: flex;
+}
+
+#sketchbook_year {
+    font-size: 1.3em;
+    padding: 0 0.5em;
+    margin: 0;
+}
+
+#sketchbook_previous_year_btn, #sketchbook_next_year_btn {
+    border: 1px #004f80 solid;
+    border-radius: 3px;
+    background-color: white;
+    font-weight: 900;
+    color: rgb(0, 79, 128);
+}
+#sketchbook_previous_year_btn:disabled, #sketchbook_next_year_btn:disabled {
+    border: 1px rgba(0, 79, 128, 0.3) solid;
+    color: rgba(0, 79, 128, 0.3);
+}
+
+#sketchbook_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 0.5em;
+    row-gap: 0.8em;
+    margin-top: 1em;
+}
+
+.sketchbook_month {
+    grid-column: 1 / -1;
+    margin-top: 1em;
+}
+
+.sketchbook_image_container {
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+
+.sketchbook_image_container > img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.sketchbook_image_container:hover > img {
+    transform: scale(1.2);
+    opacity: 0.7;
+}
+
+@media screen and (min-width: 576px) and (max-width: 768px)	{
+    #sketchbook_grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px)	{
+    #sketchbook_grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .lum-lightbox-inner img {
+        max-width: 160vw !important;  /* 左右の幅 */
+        max-height: 85vh !important;  /* 上下に余白 */
+    }
+}
