@@ -9,7 +9,7 @@ try {
     $mydb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $sql_1 = "SELECT month, image_src, desc FROM sketches WHERE year = {$year} ORDER BY month DESC, day DESC, id DESC";
-    $rows = $mydb->query($sql_1)->fetchAll();
+    $rows = $mydb->query($sql_1)->fetchAll(PDO::FETCH_ASSOC);
 
     // jsonで返す
     echo json_encode($rows);
