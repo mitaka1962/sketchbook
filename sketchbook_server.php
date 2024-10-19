@@ -4,6 +4,13 @@ header("Content-Type: application/json; charset=utf-8");
 if (isset($_GET['year'])) { $year = $_GET['year']; } else { $year = ""; }
 
 $db_path = 'sketches.db';
+
+if (!is_numeric($year)) {
+    http_response_code(500);
+    echo '{ "error": "Invalid value" }';
+    return;
+}
+
 try {
     $mydb = new PDO('sqlite:'.$db_path);
     $mydb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -15,5 +22,6 @@ try {
     echo json_encode($rows);
 } catch (PDOException $e) {
     http_response_code(500);
-    echo 'Connection failed: '.$e->getMessage();
+    $error_msg = array("error" => 'Connection failed: ' . $e->getMessage());
+    echo json_encode($error_msg);
 }
